@@ -13,30 +13,29 @@ window.onload = () => {
   if (savedTasks) {
     tasks = JSON.parse(savedTasks);
   }
-  renderTasks();
+  affichTasks();
 };
 
 function ajouterTache(text) {
   if (text.trim() === "") return;
   tasks.push({ texte: text, terminee: false });
   saveTasks();
-  renderTasks();
+  affichTasks();
   taskInput.value = "";
 }
 
 function supprimerTache(index) {
   tasks.splice(index, 1);
   saveTasks();
-  renderTasks();
+  affichTasks();
 }
 
 function terminerTache(index) {
   tasks[index].terminee = !tasks[index].terminee;
   saveTasks();
-  renderTasks();
 }
 
-function renderTasks(filter = "") {
+function affichTasks(filter = "") {
   taskList.innerHTML = "";
   tasks
     .filter(task => task.texte.toLowerCase().includes(filter.toLowerCase()))
@@ -88,6 +87,6 @@ taskInput.addEventListener("keydown", e => {
 clearAllBtn.addEventListener("click", () => {
   tasks = [];
   saveTasks();
-  renderTasks();
+  affichTasks();
 });
-searchInput.addEventListener("input", e => renderTasks(e.target.value));
+searchInput.addEventListener("input", e => affichTasks(e.target.value));
