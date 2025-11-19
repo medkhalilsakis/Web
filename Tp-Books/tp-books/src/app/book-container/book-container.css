@@ -1,0 +1,57 @@
+:host {
+  display:block;
+  width:100%;
+}
+
+.container {
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.25rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+/* Two-column layout on wide screens: left = form, right = list */
+.content {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+@media (min-width: 900px) {
+  .content {
+    flex-direction:row;
+    align-items:flex-start;
+  }
+
+  .content > .left {
+    flex: 0 0 420px; /* form width */
+    max-width:45%;
+  }
+  .content > .right {
+    flex: 1 1 auto; /* list fills remaining */
+  }
+}
+
+/* Card wrapper for inner sections */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), var(--card));
+  border-radius:10px;
+  padding:1rem;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.04);
+}
+
+/* footer area, counts, filters */
+.controls {
+  display:flex;
+  gap:0.6rem;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:0.6rem;
+}
+.counter {
+  font-weight:600;
+  color:var(--muted);
+}
