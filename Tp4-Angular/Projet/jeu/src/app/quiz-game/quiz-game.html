@@ -1,0 +1,52 @@
+<div class="quiz-card">
+  <h2>Jeu de questions</h2>
+  <p>Score : <strong>{{ score }}</strong></p>
+
+  <!-- On affiche uniquement la question courante -->
+  <div *ngIf="questions[currentIndex] as q">
+    <div *ngIf="!q.answered; else answeredBlock">
+      <h3>{{ q.question }}</h3>
+
+      <div class="options">
+        <button *ngFor="let opt of q.options"
+                (click)="onSelectOption(opt, q)"
+                [ngClass]="{
+                  'correct-answer': isCorrect(opt,q),
+                  'incorrect-answer': isIncorrect(opt,q),
+                  'selected': isSelected(opt,q)
+                }"
+                [ngStyle]="{'opacity': q.answered ? '0.6' : '1'}">
+          {{ opt }}
+        </button>
+      </div>
+    </div>
+
+    <ng-template #answeredBlock>
+      <h3>{{ q.question }}</h3>
+      <p>
+        Vous avez choisi : <strong>{{ q.selectedOption }}</strong>
+        — <span *ngIf="q.selectedOption === q.reponse" class="ok">Correct</span>
+        <span *ngIf="q.selectedOption !== q.reponse" class="nok">Incorrect</span>
+      </p>
+      <button (click)="nextQuestion()">Question suivante</button>
+    </ng-template>
+  </div>
+
+  <!-- Historique -->
+  <div class="history" *ngIf="history.length">
+    <h4>Historique des réponses</h4>
+    <ul>
+      <li *ngFor="let h of history">
+        {{ h.text }} — <span [ngClass]="{ 'ok': h.correct, 'nok': !h.correct }">
+          {{ h.correct ? 'Correcte' : 'Incorrecte' }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Bouton Terminer -->
+  <div class="actions">
+    <button *ngIf="allAnswered()" (click)="finishGame()">Terminer le jeu</button>
+    <button (click)="resetGame()">Réinitialiser</button>
+  </div>
+</div>

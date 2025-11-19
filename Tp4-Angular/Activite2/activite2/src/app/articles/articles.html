@@ -1,0 +1,16 @@
+<div class="articles-card">
+  <h2>Articles</h2>
+
+  <div class="form">
+    <input type="text" placeholder="Titre de l'article" [(ngModel)]="newTitle" />
+    <input type="text" placeholder="Contenu de l'article" [(ngModel)]="newContent" />
+    <button (click)="addArticle()">Ajouter l'article</button>
+  </div>
+
+  <div class="list">
+    <div *ngFor="let article of articles" class="article">
+      <h3>{{ article.titre }}</h3>
+      <p>{{ article.contenu }}</p>
+    </div>
+  </div>
+</div>

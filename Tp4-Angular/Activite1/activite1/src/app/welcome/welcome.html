@@ -1,0 +1,20 @@
+<div class="card">
+  <h2>Connexion</h2>
+
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="Entrez votre prénom"
+      [(ngModel)]="prenomInput"
+    />
+    <button (click)="login()">Se connecter</button>
+  </div>
+
+  <!-- Message d'erreur si prénom incorrect -->
+  <p class="error" *ngIf="error">Prénom incorrect, réessayez.</p>
+
+  <!-- Message de bienvenue -->
+  <div *ngIf="isLoggedIn" class="welcome">
+    🎉 Bienvenue <strong>{{ prenomAttendu }}</strong> !
+  </div>
+</div>

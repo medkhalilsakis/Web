@@ -1,0 +1,127 @@
+/* ====== CONTAINER PRINCIPAL ====== */
+.products-card {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+
+/* ====== PRODUIT (ligne) ====== */
+.product {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  transition: box-shadow 0.2s, transform 0.15s;
+  margin-bottom: 14px;
+  animation: fadeInRow 0.35s ease;
+}
+
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.product:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ====== COLONNES ====== */
+.name {
+  font-weight: 600;
+  font-size: 17px;
+  color: #444;
+}
+
+.stock {
+  font-weight: 600;
+  min-width: 110px;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  font-size: 14px;
+}
+
+
+/* ====== INPUT ====== */
+input {
+  width: 90px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+
+/* ====== BUTTON ====== */
+button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4a90e2;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #357ac7;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 700px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .name,
+  .stock {
+    text-align: center;
+  }
+
+  input,
+  button {
+    width: 100%;
+  }
+}

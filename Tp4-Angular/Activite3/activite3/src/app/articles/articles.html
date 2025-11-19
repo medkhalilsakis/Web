@@ -1,0 +1,28 @@
+<div class="articles-card">
+  <h2>Articles (avec importance)</h2>
+
+  <div class="form">
+    <input type="text" placeholder="Titre" [(ngModel)]="newTitle" />
+    <input type="text" placeholder="Contenu" [(ngModel)]="newContent" />
+    <select [(ngModel)]="newImportance">
+      <option value="élevée">Élevée</option>
+      <option value="moyenne">Moyenne</option>
+      <option value="faible">Faible</option>
+    </select>
+    <button (click)="addArticle()">Ajouter</button>
+  </div>
+
+  <div class="list">
+    <div *ngFor="let article of articles"
+         [ngClass]="{
+           'important': article.importance === 'élevée',
+           'moyen': article.importance === 'moyenne',
+           'faible': article.importance === 'faible'
+         }"
+         class="article">
+      <h3>{{ article.titre }}</h3>
+      <p>{{ article.contenu }}</p>
+      <small>Importance: {{ article.importance }}</small>
+    </div>
+  </div>
+</div>

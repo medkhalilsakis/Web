@@ -1,0 +1,14 @@
+<div class="products-card">
+  <h2>Produits et niveaux de stock</h2>
+
+  <div *ngFor="let p of products" class="product">
+    <span class="name">{{p.name}}</span>
+    <span class="stock" [ngStyle]="{'color': getStockColor(p.stock)}">
+      Stock: {{p.stock}}
+    </span>
+
+    <!-- contrôle pour mettre à jour le stock dynamiquement -->
+    <input type="number" [(ngModel)]="p.stock" />
+    <button (click)="updateStock(p, p.stock)">Mettre à jour</button>
+  </div>
+</div>

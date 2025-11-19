@@ -1,0 +1,161 @@
+/* Style global de la carte des articles */
+.articles-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  animation: fadeInCard 0.5s ease-out;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #444;
+}
+
+
+/* Formulaire d'ajout d'article */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 140px;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.form input,
+.form select {
+  padding: 12px;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.5);
+}
+
+.form button {
+  padding: 12px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.form button:hover {
+  background: #357ab7;
+}
+
+.form button:active {
+  transform: scale(0.98);
+}
+
+
+/* Liste des articles */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Carte d’un article */
+.article {
+  padding: 20px;
+  border-radius: 12px;
+  background: #fafafa;
+  border: 1px solid #ececec;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInArticle 0.4s ease;
+}
+
+@keyframes fadeInArticle {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.article:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.article h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #2c2c2c;
+}
+
+.article p {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Importance – utiliser ta palette donnée */
+.important {
+  background-color: #ffe6e6;
+  border-left: 4px solid #e53935;
+  padding-left: 16px; /* plus d’espace à gauche */
+}
+
+.moyen {
+  background-color: #fff7e6;
+  border-left: 4px solid #ff9800;
+  padding-left: 16px;
+}
+
+.faible {
+  background-color: #e8ffe8;
+  border-left: 4px solid #4caf50;
+  padding-left: 16px;
+}
+
+/* Texte d'importance (optionnel) */
+.article small {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Responsive pour petit écran */
+@media (max-width: 768px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .form button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,30 @@
+<h2>Gestion des tâches</h2>
+
+<!-- ACTIVITÉ 6 : ngIf + else + ng-template -->
+<div *ngIf="taches.length > 0; else pasDeTaches">
+
+  <!-- ACTIVITÉ 5 : ngFor -->
+  <div class="tache" *ngFor="let t of taches">
+
+    <span class="desc"
+          [ngClass]="{ 'terminee': t.complete }"
+          [ngStyle]="{ 'color': getColor(t.priorite) }">
+      {{ t.description }}
+    </span>
+
+    <span class="priorite {{ t.priorite }}">
+      Priorité : {{ t.priorite }}
+    </span>
+
+    <button (click)="toggleStatut(t)">
+      {{ t.complete ? 'Marquer non complétée' : 'Marquer complétée' }}
+    </button>
+
+  </div>
+
+</div>
+
+<!-- ACTIVITÉ 6 : Template alternatif -->
+<ng-template #pasDeTaches>
+  <p class="message-vide">Vous n'avez pas de tâches en cours.</p>
+</ng-template>
