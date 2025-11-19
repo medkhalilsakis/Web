@@ -1,0 +1,203 @@
+/* ========================================
+   ✨ ETUDIANT FORM — Exclusive Design
+   ======================================== */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.04);
+  animation: fadeIn 0.4s ease;
+  max-width: 580px;
+  margin: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+/* =====================
+   FORM GROUP & LABEL
+   ===================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* =====================
+   INPUTS / SELECT
+   ===================== */
+
+.form-control {
+  padding: 0.7rem 0.75rem;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  background: var(--surface-alt);
+  border: 1px solid rgba(0,0,0,0.08);
+  outline: none;
+
+  transition: 
+    background 0.2s, 
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.12s ease;
+}
+
+.form-control:focus {
+  background: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-light);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   VALIDATION STATES
+   ===================== */
+
+.form-control.ng-invalid.ng-dirty,
+.form-control.ng-invalid.ng-touched {
+  border-bottom: 3px solid var(--danger);
+  background: var(--danger-bg);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.82rem;
+  padding-left: 2px;
+  min-height: 18px;
+  animation: fadeErr 0.25s ease;
+}
+
+@keyframes fadeErr {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   INLINE CHECKBOX
+   ===================== */
+
+.form-group.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group.inline input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+
+.form-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+button {
+  padding: 0.65rem 1.1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background 0.25s,
+    box-shadow 0.25s,
+    transform 0.08s;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Primary button */
+button.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: white;
+  box-shadow: 0 8px 30px rgba(79,70,229,0.22);
+}
+
+button.primary:hover {
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+}
+
+/* Ghost button */
+button.ghost {
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+button.ghost:hover {
+  background: #eef1f7;
+}
+
+/* Disabled state */
+button[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =====================
+   SUMMARY VIEW
+   ===================== */
+
+.summary {
+  margin-top: 12px;
+}
+
+.summary .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.96rem;
+}
+
+.summary strong {
+  width: 120px;
+  color: var(--text-dark);
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 520px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  button {
+    width: 100%;
+  }
+}

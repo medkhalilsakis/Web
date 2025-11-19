@@ -1,0 +1,45 @@
+/* ========================================
+   🎨 GLOBAL THEME — Modern Soft UI
+   ======================================== */
+
+:root {
+  --accent: #4f46e5;
+  --accent-light: #eef2ff;
+  --accent-dark: #4338ca;
+
+  --danger: #dc2626;
+  --danger-bg: #fff5f5;
+
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Global reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, -apple-system;
+  background: linear-gradient(145deg, #e2e8f0, #f8fafc);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* Center main content */
+body {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+/* Optional utility container */
+.page-container {
+  width: 100%;
+  max-width: 1080px;
+  padding: 16px;
+}

@@ -1,0 +1,72 @@
+<div class="form-shell card">
+  <!-- FORMULAIRE -->
+  <div [hidden]="submitted">
+    <h2>Formulaire Étudiant</h2>
+
+    <form (ngSubmit)="onSubmit(etudiantForm)" #etudiantForm="ngForm" novalidate>
+
+      <!-- NAME -->
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input id="name" name="name" type="text" class="form-control"
+               required minlength="3"
+               [(ngModel)]="model.name" #name="ngModel">
+
+        <div class="error" *ngIf="name.invalid && name.dirty">
+          <small *ngIf="name.errors?.['required']">Le nom est requis.</small>
+          <small *ngIf="name.errors?.['minlength']">Au moins 3 caractères.</small>
+        </div>
+      </div>
+
+      <!-- SURNAME -->
+      <div class="form-group">
+        <label for="Surname">SurName</label>
+        <input id="Surname" name="Surname" type="text" class="form-control"
+               [(ngModel)]="model.Surname" #surname="ngModel">
+
+        <div class="error" *ngIf="surname.invalid && surname.dirty"></div>
+      </div>
+
+      <!-- CLASSE -->
+      <div class="form-group">
+        <label for="classe">Classe *</label>
+        <select id="classe" name="classe" class="form-control"
+                required [(ngModel)]="model.classe" #classe="ngModel">
+
+          <option value="" disabled>-- Choisir une classe --</option>
+          <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+        </select>
+
+        <div class="error" *ngIf="classe.invalid && classe.dirty">
+          <small *ngIf="classe.errors?.['required']">La classe est requise.</small>
+        </div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="form-actions">
+        <button type="submit" class="primary" [disabled]="!etudiantForm.valid">
+          Submit
+        </button>
+
+        <button type="button" class="ghost" (click)="newEtudiant(etudiantForm)">
+          New Étudiant
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- AFFICHAGE APRÈS SUBMIT -->
+  <div [hidden]="!submitted" class="summary">
+    <h3>Vous avez envoyé :</h3>
+
+    <div class="row"><strong>Name:</strong> {{ model.name }}</div>
+    <div class="row"><strong>SurName:</strong> {{ model.Surname || '—' }}</div>
+    <div class="row"><strong>Classe:</strong> {{ model.classe }}</div>
+
+    <div class="form-actions">
+      <button class="primary" (click)="submitted = false">Edit</button>
+      <button class="ghost" (click)="newEtudiant()">New (reset)</button>
+    </div>
+  </div>
+</div>
