@@ -1,0 +1,102 @@
+/* Carte principale */
+.card {
+  width: 330px;
+  padding: 18px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  transition: transform .25s, box-shadow .25s;
+  font-family: Arial, sans-serif;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* Image */
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Badge Stock */
+.stock-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 10px;
+  background: #1ab84f;
+  color: white;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.stock-badge.not {
+  background: #cc0000;
+}
+
+/* Texte */
+.title {
+  font-size: 20px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.price {
+  text-align: center;
+  color: #444;
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+/* Boutons */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn.add {
+  background: #007bff;
+  color: white;
+}
+
+.btn.add:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn.toggle {
+  background: #555;
+  color: white;
+}
+
+.btn.toggle:hover {
+  opacity: 0.85;
+}
+
+/* Hors stock (style global carte) */
+.hors-stock {
+  opacity: 0.75;
+  border: 1px solid #cc0000;
+}

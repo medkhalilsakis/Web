@@ -1,0 +1,40 @@
+<h1 style="text-align:center; margin-bottom: 20px;">
+  Catalogue des Produits
+</h1>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+  
+  <!-- Produit 1 -->
+  <app-produit
+    [nomProduit]="'Ordinateur Portable ASUS ROG'"
+    [imageUrl]="'https://i.imgur.com/S5pjgtx.jpeg'"
+    [prix]="2499.99"
+    (ajouterAuPanier)="ajouterAuPanier($event)">
+  </app-produit>
+
+  <!-- Produit 2 -->
+  <app-produit
+    [nomProduit]="'Samsung Galaxy S24'"
+    [imageUrl]="'https://i.imgur.com/GnagVX7.jpeg'"
+    [prix]="1199.00"
+    (ajouterAuPanier)="ajouterAuPanier($event)">
+  </app-produit>
+
+  <!-- Produit 3 -->
+  <app-produit
+    [nomProduit]="'Casque Audio Sony WH-1000XM5'"
+    [imageUrl]="'https://i.imgur.com/LIDY7NN.jpeg'"
+    [prix]="399.99"
+    (ajouterAuPanier)="ajouterAuPanier($event)">
+  </app-produit>
+
+</div>
+
+<hr>
+
+<h2>Panier :</h2>
+<ul>
+  <li *ngFor="let item of panier">
+    {{ item }}
+  </li>
+</ul>

@@ -1,0 +1,7 @@
+.game-wrap{display:flex;gap:20px;align-items:flex-start}
+.left{flex:1}
+.right{width:260px;border-left:1px solid #e2e8f0;padding-left:16px}
+.controls{margin-top:12px}
+.timer{margin-top:18px}
+.circle{font-size:20px;padding:10px;border-radius:8px;border:1px solid #cbd5e1;display:inline-block}
+.end{text-align:center}

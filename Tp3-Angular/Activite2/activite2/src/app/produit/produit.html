@@ -1,0 +1,26 @@
+<div class="card" [ngClass]="{'hors-stock': !enStock}">
+  
+  <div class="image-container">
+    <img [src]="imageUrl" [alt]="nomProduit">
+    <span class="stock-badge" [ngClass]="{'not': !enStock}">
+      {{ enStock ? 'EN STOCK' : 'HORS STOCK' }}
+    </span>
+  </div>
+
+  <h2 class="title">{{ nomProduit | uppercase }}</h2>
+
+  <p class="price">
+    Prix : <strong>{{ prix | currency:'EUR' }}</strong>
+  </p>
+
+  <div class="buttons">
+    <button class="btn add" (click)="ajouter()" [disabled]="!enStock">
+      Ajouter au panier
+    </button>
+
+    <button class="btn toggle" (click)="toggleStock()">
+      {{ enStock ? 'Marquer hors stock' : 'Marquer en stock' }}
+    </button>
+  </div>
+
+</div>
