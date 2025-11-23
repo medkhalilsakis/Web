@@ -1,1 +1,20 @@
-<p>question works!</p>
+<div class="question-card">
+  <div class="q-text">{{ question.question }}</div>
+
+  <img *ngIf="question.type==='image' && question.imageUrl" [src]="question.imageUrl" alt="image question" class="q-img" />
+
+  <div *ngIf="question.type==='mcq'">
+    <button *ngFor="let opt of question.options"
+            class="opt-btn"
+            [disabled]="disabled"
+            [class.selected]="selectedOption === opt"
+            (click)="onOptionClick(opt)">
+      {{ opt }}
+    </button>
+  </div>
+
+  <div *ngIf="question.type==='text'">
+    <input #textAnswer type="text" [disabled]="disabled" class="text-inp" />
+    <button (click)="onSubmitText(textAnswer)" [disabled]="disabled">Valider</button>
+  </div>
+</div>

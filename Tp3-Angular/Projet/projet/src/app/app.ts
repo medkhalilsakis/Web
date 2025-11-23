@@ -1,16 +1,19 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Game } from './game/game';
-import { Home } from './home/home';
-import { Question } from './question/question';
-import { Score } from './score/score';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Home,Game,Question,Score],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [RouterModule],
+  template: `
+    <div class="app-shell">
+      <div class="card">
+        <div class="header">
+          <div class="logo">Quiz</div>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  `
 })
-export class App {
-  protected readonly title = signal('projet');
-}
+export class AppComponent {}

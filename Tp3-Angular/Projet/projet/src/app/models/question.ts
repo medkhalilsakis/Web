@@ -2,11 +2,10 @@ export type QuestionType = 'mcq' | 'text' | 'image' | 'audio';
 
 export interface Question {
   id: number;
-  question: string;
-  options?: string[]; 
-  reponse: string;   
   type?: QuestionType;
+  question: string;
+  options?: string[];
+  reponse: string;
   imageUrl?: string;
   audioUrl?: string;
-  timeLimitSec?: number;
 }

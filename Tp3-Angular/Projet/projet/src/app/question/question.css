@@ -1,0 +1,6 @@
+.question-card { padding:16px; border-radius:8px; border:1px solid #e0e0e0; margin-bottom:12px; }
+.q-text { font-weight:600; margin-bottom:10px; }
+.opt-btn { display:inline-block; margin:6px 8px 6px 0; padding:8px 12px; border-radius:6px; border:1px solid #bbb; background:white; cursor:pointer; }
+.opt-btn.selected { background:#cfe8ff; border-color:#1976d2; }
+.text-inp { padding:6px 8px; margin-right:8px; }
+.q-img { max-width:100%; border-radius:6px; margin-bottom:8px; }
