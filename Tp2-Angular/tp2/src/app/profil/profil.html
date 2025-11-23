@@ -1,0 +1,17 @@
+<div class="profil">
+  <label>
+    Prénom:
+    <input name="prenom" [(ngModel)]="utilisateur.prenom" placeholder="Prénom" />
+  </label>
+  <br/>
+  <label>
+    Age:
+    <input name="age" type="number" [(ngModel)]="utilisateur.age" placeholder="Âge" />
+  </label>
+
+  <div class="live">
+    <h4>Valeurs saisies :</h4>
+    <p>Prénom : {{ utilisateur.prenom }}</p>
+    <p>Age : {{ utilisateur.age }}</p>
+  </div>
+</div>
